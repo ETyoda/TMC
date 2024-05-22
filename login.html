@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeMaster</title>
+    <link rel="icon" href="./images/TMIcon.png">
+    <link rel="stylesheet" href="./login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="">
+            <h1>Welcome to TradeMaster</h1>
+            <h1>Login</h1>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="role" required>Customer
+                </label>
+                <label>
+                    <input type="radio" name="role" required>Technician
+                </label>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Email" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password" required>
+
+                <span class="toggle-password" onclick="togglePassword()">
+                    <i id="eye-icon" class='bx bx-hide'></i>
+                </span>
+            </div>
+            <div class="show-password">
+                <label>
+                    <input type="checkbox" id="show-password-checkbox" onclick="togglePassword()"> Show password
+                </label>
+                <a href="#">Forget password</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="info-text">
+                <p>Don't have an account? <a href="signUp.html">Sign up here.</a></p>
+                <p>By logging in, you agree to our <a href="privacy.html">privacy statement.</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            const showPasswordCheckbox = document.getElementById("show-password-checkbox");
+            const eyeIcon = document.getElementById("eye-icon");
+
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = "text";
+                eyeIcon.classList.remove("bx-hide");
+                eyeIcon.classList.add("bx-show");
+                showPasswordCheckbox.nextSibling.textContent = " Hide password";
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove("bx-show");
+                eyeIcon.classList.add("bx-hide");
+                showPasswordCheckbox.nextSibling.textContent = " Show password";
+            }
+        }
+    </script>
+</body>
+
+</html>
